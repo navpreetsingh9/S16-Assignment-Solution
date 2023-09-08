@@ -7,7 +7,7 @@ def get_config():
         "lr": 10**-4,
         "max_lr": 10**-3,
         "seq_len": 160,
-        "d_model": 512,
+        "d_model": 1024,
         "lang_src": "en",
         "lang_tgt": "fr",
         "model_folder": "weights",
