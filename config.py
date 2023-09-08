@@ -2,12 +2,12 @@ from pathlib import Path
 
 def get_config():
     return {
-        "batch_size": 64,
+        "batch_size": 128,
         "num_epochs": 40,
         "lr": 10**-4,
         "max_lr": 10**-3,
         "seq_len": 160,
-        "d_model": 256,
+        "d_model": 512,
         "lang_src": "en",
         "lang_tgt": "fr",
         "model_folder": "weights",
