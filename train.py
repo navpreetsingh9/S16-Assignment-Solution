@@ -166,7 +166,7 @@ def get_ds(config):
     print(f'Max length of source sentence: {train_ds.max_len_src}')
     print(f'Max length of target sentence: {train_ds.max_len_tgt}')  
 
-    train_dataloader = DataLoader(train_ds, batch_size=config['batch_size'], shuffle=True)
+    train_dataloader = DataLoader(train_ds, batch_size=config['batch_size'], shuffle=True, collate_fn=collate_fn)
     val_dataloader = DataLoader(val_ds, batch_size=1, shuffle=True)
 
     return train_dataloader, val_dataloader, tokenizer_src, tokenizer_tgt
@@ -189,7 +189,7 @@ def collate_fn(batch):
         encoder_mask.append((b["encoder_mask"][0, 0, :encoder_input_max].unsqueeze(0).unsqueeze(0).unsqueeze(0)))
         decoder_mask.append(((b["decoder_mask"][0, :decoder_input_max, :decoder_input_max]).unsqueeze(0).unsqueeze(0)))
         label.append(b["label"][:decoder_input_max])
-        src_text.append(b["src text"])
+        src_text.append(b["src_text"])
         tgt_text.append(b["tgt_text"])
     
     return {
