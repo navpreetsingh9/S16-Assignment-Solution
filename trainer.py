@@ -89,7 +89,7 @@ class LitTransfomer(LightningModule):
         sched = torch.optim.lr_scheduler.OneCycleLR(
                                             optimizer,
                                             max_lr=self.config['max_lr'],
-                                            steps_per_epoch=1607,
+                                            steps_per_epoch=1605,
                                             epochs=self.config['num_epochs'],
                                             pct_start=1/10,
                                             div_factor=100,
